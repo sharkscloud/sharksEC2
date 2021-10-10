@@ -24,14 +24,14 @@ KISS --> Keep it Simple,Stupid
 Homework:
 1) Setup MFA for IAM User: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html?icmpid=docs_iam_console
 
+
+==============================================================================
 Homework for 
 
 Homework 10/16/2021
 
 You need to work on README.md file and add all the steps you have done for IAM. 
-
-
-
+===============================================================================
 
  
 
