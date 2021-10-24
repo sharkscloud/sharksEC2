@@ -1,0 +1,20 @@
+Date: 10/24/2021 EC2 notes 
+
+1. EC2 (Elastic Cloud Compute)
+2. AMI (Amazin Machine Image) which comes with preconfigured software
+3. After spinning up the EC2 instance (VM) we need to lock down pem file permissions
+4. chmod 400 ~/Downloads/pemfile 
+5. ssh -i ~/Downloads/pemfile ec2-user@public IP
+6. whoami --> To detect the user of vm 
+7. ifconfig --> Returns private IP of machine 
+8. cat /etc/os-release --> get info about vm OS 
+9. For OS like RedHat, Centos, Fedora, Amazon Linux we use YUM package manager
+10. sudo yum update -y
+11. sudo yum install httpd -y
+12. sudo service httpd status
+13. sudo service httpd start
+14. sudo service httpd status
+15. sudo chkconfig httpd on  --> Start up httpd during the boot time 
+16. cd /var/www/html 
+17. sudo vim index.html  --> <h1> Welcome Sharks from New Jersey and Edirne </h1>
+18. To exit from vim editor press on esc and click on colon and wq for write and quit 
