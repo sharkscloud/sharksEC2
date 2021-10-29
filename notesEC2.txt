@@ -18,3 +18,16 @@ Date: 10/24/2021 EC2 notes
 16. cd /var/www/html 
 17. sudo vim index.html  --> <h1> Welcome Sharks from New Jersey and Edirne </h1>
 18. To exit from vim editor press on esc and click on colon and wq for write and quit 
+
+Date: 10/28/2021 EC2 notes cont. 
+
+1. In Linux --> id -- print real and effective user and group IDs
+2. sudo usermod -a -G apache ec2-user --> Adds user to group 
+3. chown - change file owner and group
+4. sudo chown -R ec2-user:apache /var/www/
+5. echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.phps
+6. Why we use Private AMIs --> 1) Security -- because only account owner can access it and 2) It comes with software we installed
+7. CloudWatch --> AWS native Logging and Monitoring tool/service 
+8. sudo yum install -y awslogs --> Installs awslogs client for CloudWatch
+9. sudo systemctl start awslogsd
+10. sudo systemctl status awslogsd
