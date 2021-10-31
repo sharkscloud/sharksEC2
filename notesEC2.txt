@@ -31,3 +31,50 @@ Date: 10/28/2021 EC2 notes cont.
 8. sudo yum install -y awslogs --> Installs awslogs client for CloudWatch
 9. sudo systemctl start awslogsd
 10. sudo systemctl status awslogsd
+
+Date: 10/30/2021 EC2 cont.
+ 
+1. EBS -- Elastic Block Store. 
+2. 2 kinds of storages --> 1) Block or Persistent and 2) Ephemeral
+3. Certain data is critical data so we don't want to loose the data even though EC2 goes down. 
+4. Ephemeral storage --> Data is available only during uptime.  In case EC2 goes down we say bye bye to data. 
+5. Limitations of EBS --> Only available in single AZ. 
+6. lsblk - list block devices
+7. Create a new FileSystem on the volume --> mkfs - build a Linux filesystem
+8. mkfs -t ext4 /dev/sdf
+
+
+Date: 10/31/2021 EC2 cont. Load Balancers
+
+1. Load Balancers (LB) distributes traffic among healthy instances, containers and IP addresses.
+2. 4 types of LBs --> 1) Application LB (ALB), 2) Network LB (NLB), 3) Gateway LB (GLB) and 4) Elastic LB (ELB)
+3. Nowdays we don't usually use ELB. It used with Classic EC2 instances. 
+
+NLB 
+
+Scenario: During regular time each day 1 million people do shopping from Amazon. 
+          But on Black Friday suddenly 10 million people shopped from Amazon within 20 mins.
+          We have only 3 EC2 (VM) instances. This 3 VM can only handle 1.5 million people in 1 day. 
+
+How we will handle this situation? 
+
+We will leverage NLB. 
+
+1. Network Load Balancers are capable of handling millions of requests per second securely while 
+maintaining ultra-low latencies.
+2. 2 types of Scheme --> 1) Internet facing and 2) Internal 
+3. Before NLB we created Target Group and registered instances. 
+4. In order instances come back healthy we configured WebServer (Apache/HTTPD).
+5. In order to test our solution we ssh into Admin instances and run following commands:
+
+while true;
+do 
+wget <NLB DNS name>
+done 
+
+After running above command terminal will go crazy. Go to NLB monitoring and monitor the traffic. 
+
+
+
+
+
